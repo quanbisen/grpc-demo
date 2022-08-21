@@ -1,0 +1,23 @@
+server:
+  domain: user
+  version: 1.0.0
+  jwtSecret: Fanone
+  grpcAddress: "127.0.0.1:50001"
+
+mysql:
+  driverName: mysql
+  host: 192.168.100.86
+  port: 3306
+  database: grpc-demo
+  user: root
+  password: 10010
+  charset: utf8mb4
+
+etcd:
+  address: 192.168.100.86:2379
+  user: root
+  password: 10010
+
+redis:
+  address: 192.168.100.86:6379
+  password: 10010

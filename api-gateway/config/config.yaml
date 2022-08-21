@@ -1,0 +1,15 @@
+server:
+  domain: api-gateway
+  host: 127.0.0.1
+  port: 8080
+  version: 1.0.0
+  jwtSecret: Fanone
+
+etcd:
+  address: 192.168.100.86:2379
+  user: root
+  password: 10010
+
+domain:
+  user: user
+  task: task

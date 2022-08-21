@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package pb;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package="/internal/service;service";
+
+message TaskModel {
+  uint64 TaskId=1;
+  uint64 UserId=2;
+  uint32 Status=3;
+  string Title=4;
+  string Content=5;
+  google.protobuf.Timestamp StartTime=6;
+  google.protobuf.Timestamp EndTime=7;
+}

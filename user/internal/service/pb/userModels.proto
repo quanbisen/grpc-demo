@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package pb;
+
+option go_package="/internal/service;service";
+
+message UserModel {
+  // @inject_tag: json: "user_id"
+  uint64 UserId=1 [json_name="no1"];
+  // @inject_tag: json: "username"
+  string Username=2 [json_name="no1"];
+  // @inject_tag: json: "nickname"
+  string Nickname=3 [json_name="no1"];
+}

@@ -1,0 +1,42 @@
+syntax="proto3";
+
+package pb;
+import "google/protobuf/timestamp.proto";
+import "internal/service/pb/taskModels.proto";
+
+option go_package="/internal/service;service";
+
+message TaskRequest {
+  // @inject_tag: json: "task_id" form: "task_id"
+  uint64 TaskId=1;
+  // @inject_tag: json: "user_id" form: "user_id"
+  uint64 UserId=2;
+  // @inject_tag: json: "status" form: "status"
+  uint32 Status=3;
+  // @inject_tag: json: "title" form: "title"
+  string Title=4;
+  // @inject_tag: json: "content" form: "content"
+  string Content=5;
+  // @inject_tag: json: "start_time" form: "start_time"
+  google.protobuf.Timestamp StartTime=6;
+  // @inject_tag: json: "end_time" form: "end_time"
+  google.protobuf.Timestamp EndTime=7;
+}
+
+message TaskDetailResponse {
+  repeated TaskModel TaskDetail=1;
+  uint32 Code=2;
+}
+
+message CommonResponse {
+  uint32 Code=1;
+  string Msg=2;
+  string Data=3;
+}
+
+service TaskService {
+  rpc TaskCreate(TaskRequest) returns(CommonResponse);
+  rpc TaskUpdate(TaskRequest) returns(CommonResponse);
+  rpc TaskShow(TaskRequest) returns(TaskDetailResponse);
+  rpc TaskDelete(TaskRequest) returns(CommonResponse);
+}
